@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7th sem routine</title>
+    <link href="https://www.pcepurnia.org/wp-content/themes/theme-college/assets/img/logo.png" type="img/logo.png"
+        rel="icon">
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 10px auto;
+        }
+
+        table th,
+        tr,
+        td {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        input {
+            padding: 5px;
+            margin: 0px;
+            width: 85px;
+            text-align: center;
+
+        }
+
+        @media screen and (max-width: 800px) {
+            table {
+                background-color: bisque;
+                display: inline-block;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <table class="table table-striped-columns">
+        <form action="" name="routine">
+            <thead>
+                <tr>
+                    <td colspan="4">
+                        <h2>Today Schedule</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Day</th>
+                    <th>10:00 - 10:50</th>
+                    <th>10:50 - 11:40</th>
+                    <th>11:40 - 12:30</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th><input type="text" name="dinname" readonly></th>
+                    <td><input type="text" name="sub_1" readonly></td>
+                    <td><input type="text" name="sub_2" readonly></td>
+                    <td><input type="text" name="sub_3" readonly></td>
+                </tr>
+            </tbody>
+        </form>
+    </table>
+    <script>
+        let sub1;
+        let sub2;
+        let sub3;
+        let sub = ["WC-S.AKH", "OFC-MOHIT", "VLSI-PARIMAL", "CMEP-S.AKH", "BA-RANJAN"];
+        let dayname = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+        let nowdate = new Date();
+        let dayno = nowdate.getDay();
+        switch (dayno) {
+            case 0://sunday
+                document.routine.dinname.value = dayname[6];
+                document.routine.sub_1.value = 0;
+                document.routine.sub_2.value = 0;
+                document.routine.sub_3.value = 0;
+                break;
+            case 1:
+                document.routine.dinname.value = dayname[0];
+                document.routine.sub_1.value = sub[0];
+                document.routine.sub_2.value = sub[1];
+                document.routine.sub_3.value = sub[2];
+                break;
+            case 2:
+                document.routine.dinname.value = dayname[3];
+                document.routine.sub_1.value = sub[3];
+                document.routine.sub_2.value = sub[0];
+                document.routine.sub_3.value = sub[4];
+                break;
+            case 3:
+                document.routine.dinname.value = dayname[3];
+                document.routine.sub_1.value = sub[4];
+                document.routine.sub_2.value = sub[1];
+                document.routine.sub_3.value = sub[2];
+                break;
+            case 4:
+                document.routine.dinname.value = dayname[3];
+                document.routine.sub_1.value = sub[1];
+                document.routine.sub_2.value = sub[0];
+                document.routine.sub_3.value = sub[3];
+                break;
+            case 5:
+                document.routine.dinname.value = dayname[4];
+                document.routine.sub_1.value = sub[2];
+                document.routine.sub_2.value = sub[4];
+                document.routine.sub_3.value = sub[3];
+                break;
+            default://saturday
+                document.routine.dinname.value = dayname[5];
+                document.routine.sub_1.value = 0;
+                document.routine.sub_2.value = 0;
+                document.routine.sub_3.value = 0;
+
+        }
+    </script>
+</body>
+
+</html>
